@@ -3,7 +3,7 @@ import { FaCopy } from "react-icons/fa";
 import "./App.css";
 
 function App() {
-  const [length, setLength] = useState(0);
+  const [length, setLength] = useState(6);
   const [allowNumbers, setAllowNumbers] = useState(false);
   const [allowUppercase, setAllowUppercase] = useState(false);
   const [allowCharacters, setAllowCharacters] = useState(false);
@@ -15,12 +15,14 @@ function App() {
 
     if (allowUppercase) allowableString += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (allowNumbers) allowableString += "0123456789";
-    if (setCharactersAllowed) allowableString += "!@#$%^&*()_+";
+    if (allowCharacters) allowableString += "!@#$%^&*()_+";
 
-    for (i = 1; i < length; i++) {
-      const index = Math.floor(Math.random() * generatedPassword.length + 1);
+    for (let i = 0; i < length; i++) {
+      const index = Math.floor(Math.random() * allowableString.length + 1);
       generatedPassword += allowableString.charAt(index);
+      console.log(index);
     }
+
     setPassowrd(generatedPassword);
   }, [length, allowUppercase, allowNumbers, allowCharacters]);
 
@@ -61,7 +63,7 @@ function App() {
             value={length}
             className="cursor-pointer"
             onChange={(e) => setLength(e.target.value)}
-            name="length"
+            id="length"
           />
         </div>
         <div className="flex justify-between items-center gap-x-1 py-2">
