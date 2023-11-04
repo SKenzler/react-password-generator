@@ -1,6 +1,6 @@
 # React Password Generator
 
-![React Toggler Screenshot](https://github.com/SKenzler/react-theme-toggle/blob/main/src/assets/password-generator-screenshot.png)
+![React Toggler Screenshot](src/assets/password-generator-screenshot.png)
 
 ## About The Project
 
